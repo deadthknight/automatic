@@ -6,5 +6,5 @@
 # print(a)
 
 dict1 = {1:'a', 2:'b', 3:'c', 4:'d'}
-dict2 = dict1[1]
+dict2 = dict1.get(4)
 print(dict2)
