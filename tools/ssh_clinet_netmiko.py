@@ -51,5 +51,3 @@ if __name__ == '__main__':
     # print(netmiko_config_cred('10.1.1.253', 'admin', 'Cisc0123', config_commands, verbose=True))
 
 
-if __name__ == "__main__":
-    pass

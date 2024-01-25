@@ -105,4 +105,4 @@ def snmpv2_getall(ip, community, count=25, port=161):
 
 if __name__ == "__main__":
     from pprint import pprint
-    pprint(snmpv2_getall('10.10.1.2', 'tcpip'))
+    pprint(snmpv2_getall('10.10.1.1', 'tcpip'))

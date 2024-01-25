@@ -1,7 +1,6 @@
 #!usr/bin/env python3.11    # Python解释器
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python3
-# -*- coding=utf-8 -*-
+
 
 from sqlalchemy.orm import sessionmaker
 from create_db import Router, Interface, OSPFProcess, Area, OSPFNetwork, engine

@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from create_db import Router, engine
 
 # 导入正课中的netmiko代码
-from new_homework.day7.code.tools.ssh_client_netmiko import netmiko_config_cred
+from tools.ssh_clinet_netmiko import netmiko_config_cred
 
 # 协程相关
 import asyncio

@@ -140,5 +140,5 @@ if __name__ == '__main__':
     # checkfirst=True，表示创建表前先检查该表是否存在，如同名表已存在则不再创建。其实默认就是True
     Base.metadata.create_all(engine, checkfirst=True)
 
-
-
+#
+#
