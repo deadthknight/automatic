@@ -25,8 +25,8 @@ def syslog_show():
         level_list.append(level)
         count_list.append(count)
 
-    print(level_list)
-    print([float(count) for count in count_list])
+    # print(level_list)
+    # print([float(count) for count in count_list])
 
     plt.rcParams['font.sans-serif'] = ['SimHei']  # 设置中文
     # 调节图形大小，宽，高
@@ -59,7 +59,7 @@ def syslog_show():
     plt.axis('equal')
     plt.title('SYSLOG严重级别分布图')  # 主题
     plt.legend()
-    plt.show()
+    # plt.show()
 
 
 if __name__ == '__main__':

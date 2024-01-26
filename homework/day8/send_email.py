@@ -4,16 +4,17 @@
 from sqlalchemy.orm import sessionmaker
 from create_syslog_db import Syslog, engine
 from sqlalchemy import func
-from  import mat_bing
-from new_homework.day8.code.tools.smtp_send_mail_img import qyt_smtp_img
+from tools.matplotlib_Pie_Chart import mat_bing
+from tools.test1 import qyt_smtp_img
 import os
 from jinja2 import Template
+
 
 # 配置jinja2模板目录
 tem_path = './templates/'
 
 # jinja2读取邮件HTML模板
-with open(tem_path + 'syslog_email.template') as f:
+with open(tem_path + 'syslog_email.template',encoding='utf-8') as f:
     syslog_email_template = Template(f.read())
 
 
@@ -113,12 +114,12 @@ main_body_html = syslog_email_template.render(severity_level_count_html_list=sev
                                               device_ip_count_html_list=device_ip_count_html_list,
                                               device_ip_filename=device_ip_filename)
 
-# 发送HTML邮件
+    # 发送HTML邮件
 qyt_smtp_img('smtp.qq.com',
-             '3348326959@qq.com',
-             'dmyymagcazklcjie',
-             '3348326959@qq.com',
-             '3348326959@qq.com;collinsctk@qytang.com',
+             '58937909@qq.com',
+             'la822ywq',
+             '58937909@qq.com',
+             '58937909@qq.com',
              '乾颐堂NetDevOps Syslog分析',
              main_body_html,
              [save_file_severity_level_file,
@@ -132,5 +133,5 @@ if os.path.exists(save_file_device_ip_file):
     os.remove(save_file_device_ip_file)
 
 
-if __name__ == "__main__":
-    pass
+# if __name__ == "__main__":
+#     pass
