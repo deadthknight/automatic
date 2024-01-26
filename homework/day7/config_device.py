@@ -89,7 +89,7 @@ for router in all_routers:
               no shutdown
     {% endfor %}
     """
-    pprint.pprint(interface_config_list)
+    # pprint.pprint(interface_config_list)
     """
     [{'interface_ip': '10.1.1.1',
       'interface_mask': '255.255.255.0',
@@ -143,7 +143,7 @@ for router in all_routers:
           network {{ n.network }} {{ n.wildmask }} area {{ n.area }}
         {% endfor %}
     """
-    pprint.pprint(ospf_dict)
+    # pprint.pprint(ospf_dict)
     """
     {'ospf_network_list': [{'area': 0,
                             'network': '10.1.1.0',
