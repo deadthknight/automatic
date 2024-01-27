@@ -91,7 +91,7 @@ for router in all_routers:
     """
     # pprint.pprint(interface_config_list)
     """
-    [{'interface_ip': '10.1.1.1',
+    [{'interface_ip': '10.10.1.1',
       'interface_mask': '255.255.255.0',
       'interface_name': 'GigabitEthernet1'},
      {'interface_ip': '1.1.1.1',
@@ -146,7 +146,7 @@ for router in all_routers:
     # pprint.pprint(ospf_dict)
     """
     {'ospf_network_list': [{'area': 0,
-                            'network': '10.1.1.0',
+                            'network': '10.10.1.0',
                             'wildmask': '0.0.0.255'},
                            {'area': 0,
                             'network': '2.2.2.2',

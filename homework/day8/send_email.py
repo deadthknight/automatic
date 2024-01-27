@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from create_syslog_db import Syslog, engine
 from sqlalchemy import func
 from tools.matplotlib_Pie_Chart import mat_bing
-from tools.test1 import qyt_smtp_img
+from tools.smtp_send_mail_img import qyt_smtp_img
 import os
 from jinja2 import Template
 
@@ -117,7 +117,7 @@ main_body_html = syslog_email_template.render(severity_level_count_html_list=sev
     # 发送HTML邮件
 qyt_smtp_img('smtp.qq.com',
              '58937909@qq.com',
-             'la822ywq',
+             'dgoplovftflqbgjd',   #第三方授权码
              '58937909@qq.com',
              '58937909@qq.com',
              '乾颐堂NetDevOps Syslog分析',
