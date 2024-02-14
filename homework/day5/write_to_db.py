@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 
-sys.path.extend(['/Python/protocol2022/'])
+sys.path.extend(['/Python/automatic/'])
 from tools.snmpv2_getall_2023 import snmpv2_getall
 import datetime
 from influxdb import InfluxDBClient

@@ -29,7 +29,7 @@ def mat_line(lines_list, title, x_label, y_label):
     ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%3.1f%%'))
 
     # # 设置Y轴范围为0到100
-    # plt.ylim(0, 100)
+    plt.ylim(0, 100)
     # # 设置Y轴刻度为0到100，每10为一个刻度
     # plt.yticks(range(0, 101, 10))
 

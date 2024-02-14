@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding=utf-8 -*-
-
+#!usr/bin/env python3.11    # Python解释器
+# -*- coding: utf-8 -*-
 from sqlalchemy.orm import sessionmaker
 from create_db_row import RouterMonitor, engine
-from get_wr_db import ip_list
+from test4 import ips
 from matplotlib_linear import mat_line
 from random import choice
 from pprint import pprint
@@ -14,8 +13,8 @@ session = Session()
 
 # 过滤一个小时以内的数据
 now = datetime.now()
-one_hours_before = now - timedelta(hours=1)
-# print(one_hours_before)
+one_hours_before = now - timedelta(minutes=5)
+print(one_hours_before)
 
 # 线的颜色列表, 随机选择
 color_list = ['red', 'blue', 'green', 'yellow']
@@ -31,12 +30,12 @@ mem_line_list = []
 
 i = 0
 
-for ip in ip_list:
+for ip in ips:
     # 过滤特定IP(设备), 一个小时内的数据库记录
     router_infos = session.query(RouterMonitor).filter(RouterMonitor.record_datetime >= one_hours_before,
                                                        RouterMonitor.device_ip == ip
                                                        )
-    print(router_infos)
+    # print(router_infos)
     # 这个设备记录时间列表
     time_list = []
     # 这个设备记录的CPU利用率的列表
@@ -50,13 +49,13 @@ for ip in ip_list:
         time_list.append(router_info.record_datetime)
         # 写入CPU利用率记录
         cpu_list.append(router_info.cpu_useage_percent)
-        # 计算并写入内存利用率记录
-        # mem_use = router_info.mem_use
-        # mem_free = router_info.mem_free
-        # mem_percent = round((mem_use / (mem_free + mem_use)) * 100, 2)
-        mem_list.append(router_info.memory_usage)
-
-    # 写入到最终绘图用的CPU列表
+#         # 计算并写入内存利用率记录
+#         mem_use = router_info.mem_use
+#         mem_free = router_info.mem_free
+#         mem_percent = round((mem_use / (mem_free + mem_use)) * 100, 2)
+        mem_list.append(router_infos.memory_usage_percent)
+#
+#     # 写入到最终绘图用的CPU列表
     cpu_line_list.append([time_list, cpu_list, choice(line_style_list), color_list[i], ip])
     # 写入到最终绘图用的内存列表
     mem_line_list.append([time_list, mem_list, choice(line_style_list), color_list[i], ip])
@@ -71,3 +70,6 @@ pprint(mem_line_list)
 # 绘制线形图
 mat_line(cpu_line_list, 'CPU利用率', '记录时间', '百分比')
 mat_line(mem_line_list, 'MEM利用率', '记录时间', '百分比')
+#
+# if __name__ == "__main__":
+#     pass
