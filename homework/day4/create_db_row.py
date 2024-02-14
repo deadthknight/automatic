@@ -25,6 +25,7 @@ class RouterMonitor(Base):
     id = Column(Integer, primary_key=True)  # 唯一ID, 主键
     device_ip = Column(String(64), nullable=False)  # 设备IP地址
     cpu_useage_percent = Column(Integer, nullable=False)  # CPU利用率
+    memory_usage = Column(Integer, nullable=False) #内存使用率
     mem_use = Column(Integer, nullable=False)  # 使用内存字节数
     mem_free = Column(Integer, nullable=False)  # 闲置内存字节数
     # 记录时间
@@ -34,10 +35,12 @@ class RouterMonitor(Base):
         return f"{self.__class__.__name__}(Router: {self.device_ip} " \
                f"| Datetime: {self.record_datetime} " \
                f"| CPU_Usage_Percent: {self.cpu_useage_percent} " \
+               f"| MEM_usage_Percent: {self.memory_usage} " \
                f"| MEM Use: {self.mem_use} " \
-               f"| MEM Free: {self.mem_free})"
+               f"| MEM Free: {self.mem_free}"
 
 
 if __name__ == '__main__':
+
     # checkfirst=True，表示创建表前先检查该表是否存在，如同名表已存在则不再创建。其实默认就是True
     Base.metadata.create_all(engine, checkfirst=True)
