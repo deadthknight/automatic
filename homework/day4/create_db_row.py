@@ -37,7 +37,7 @@ class RouterMonitor(Base):
                f"| CPU_Usage_Percent: {self.cpu_useage_percent} " \
                f"| MEM_usage_Percent: {self.memory_usage} " \
                f"| MEM Use: {self.mem_use} " \
-               f"| MEM Free: {self.mem_free}"
+               f"| MEM Free: {self.mem_free})"
 
 
 if __name__ == '__main__':
