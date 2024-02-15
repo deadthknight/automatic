@@ -26,6 +26,7 @@ def get_info_writedb(ip_list , rocommunity):
             # 把CPU和内存信息构建对象(数据库记录)
             router_info = RouterMonitor(device_ip=get_all.get('ip'),
                                         cpu_useage_percent=get_all.get('cpu_usage'),
+                                        memory_usage=get_all.get('mem_usage'),
                                         mem_use=get_all.get('mem_use'),
                                         mem_free=get_all.get('mem_free')
                                         )
