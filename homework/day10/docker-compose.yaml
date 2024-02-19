@@ -9,7 +9,7 @@ services:
       - cluster.name=qytang_es_cluster
       - network.host=0.0.0.0
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"                  #内存由4G降低为2G，宿主机内存不足 导致elastic拉不起来
     volumes:
 #      - /usr/share/elasticsearch/data  # 数据持久化
 # 提前需要配置一下时间相关文件
