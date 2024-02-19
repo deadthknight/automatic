@@ -1,3 +1,5 @@
+# Linux 先安装 dnf install wireshark-cli
+
 import pyshark  # pip3 install pyshark==0.4.5
 from datetime import timezone, timedelta
 from elasticsearch import Elasticsearch  # pip3 install elasticsearch==6.3.1
@@ -6,7 +8,7 @@ from elasticsearch import Elasticsearch  # pip3 install elasticsearch==6.3.1
 tzutc_0 = timezone(timedelta(hours=0))
 
 # 连接ElasticSearch
-es = Elasticsearch("http://10.1.1.11:9200")
+es = Elasticsearch("http://10.10.1.200:9200")
 
 # PyShark读取PCAP数据包'pkt.pcap'
 cap = pyshark.FileCapture('pkt.pcap', keep_packets=False)  # 读取pcap文件,数据包被读取后,不在内存中保存!节约内存!
@@ -33,7 +35,8 @@ def write_pkt_es(pkt):
 
     # 格式为:2018-04-23T10:45:13.899Z. Note that we only have milliseconds and the T as separator and Z indicating UTC.
     # E的时间为UTC,所以需要切换时区
-    pkt_dict_final.update({"sniff_time": pkt.sniff_time.astimezone(tzutc_0).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]+'Z'})
+    pkt_dict_final.update(
+        {"sniff_time": pkt.sniff_time.astimezone(tzutc_0).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + 'Z'})
     pkt_dict_final.update({'highest_layer': pkt.highest_layer})
 
     try:
