@@ -22,7 +22,7 @@ def get_info_writedb(ip_list, rocommunity):
         try:
             get_all = snmpv2_getall(device_ip, rocommunity)
             interfaces_list = get_all.get('interface_list')
-            pprint(interfaces_list)
+            # pprint(interfaces_list)
             # pprint(get_all)
 
             # {'cpu_usage': 1,
@@ -77,7 +77,7 @@ def get_info_writedb(ip_list, rocommunity):
                 interface_name = interface.get('interface_name')
                 in_bytes = interface.get('interface_in_bytes')
                 out_bytes = interface.get('interface_out_bytes')
-                print(interface)
+                # print(interface)
 
                 if in_bytes and out_bytes:
                     interface_info = InternfaceMonitor(device_ip=device_ip,

@@ -25,7 +25,7 @@ router_if_infos = session.query(InternfaceMonitor.device_ip,
                                 InternfaceMonitor.interface_name).group_by \
     (InternfaceMonitor.device_ip, InternfaceMonitor.interface_name).all()
 
-# print(router_if_infos)
+print(router_if_infos)
 # [('10.10.1.1', 'GigabitEthernet1'), ('10.10.1.2', 'GigabitEthernet1')]
 
 # 入向接口速率
