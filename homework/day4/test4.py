@@ -22,8 +22,9 @@ def get_info_wrdb(ips,rocommunity='tcpip'):
         router_usage_record = RouterMonitor(device_ip=ip,
                                             cpu_useage_percent=cpu_usage,
                                             memory_usage=mem_usage,
-                                            mem_use=mem_use,
-                                            mem_free=mem_free)
+                                            # mem_use=None,
+                                            # mem_free=None
+                                            )
         router_ip_list.append(router_usage_record)
         print(router_ip_list)
     session.add_all(router_ip_list)

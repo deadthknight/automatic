@@ -16,5 +16,5 @@ if __name__ == "__main__":
     if platform.system() == "Linux":
         print(get_ifname('ens224'))
     elif platform.system() == "Windows":
-        print(get_ifname('VMware Network Adapter VMnet1'))
+        print(get_ifname('以太网'))
 

@@ -37,5 +37,7 @@ def arp_scan_thread(network):
 
 
 if __name__ == "__main__":
-    for ip, mac in arp_scan_thread('10.10.1.0/30').items():
+    for ip, mac in arp_scan_thread('10.10.204.0/24').items():
         print(f'IP地址:{ip},MAC地址:{mac}')
+    print(len(arp_scan_thread('10.10.204.0/24')))
+    # print(arp_request('10.10.201.221'))
